@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maison Lumière — Fine Diamonds & Jewellery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Italiana&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0e0c0a;
+    --bg-soft: #14110e;
+    --bg-warm: #1b1612;
+    --ink: #f4ecd8;
+    --ink-soft: #c8b994;
+    --ink-muted: #847868;
+    --gold: #c9a961;
+    --gold-bright: #e6c878;
+    --line: rgba(201, 169, 97, 0.18);
+    --line-strong: rgba(201, 169, 97, 0.42);
+    --display: 'Italiana', serif;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Inter', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .announce {
+    background: #060504;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.7rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 12, 10, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.25rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1;
+  }
+  .logo span { color: var(--gold); }
+
+  .nav-links {
+    display: none;
+    list-style: none;
+    gap: 2.2rem;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -6px;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+  .nav-links a:hover { color: var(--gold-bright); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--line-strong);
+    transition: all 0.4s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--bg);
+  }
+
+  .icon-btn {
+    background: none;
+    border: none;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 0.3rem;
+    display: flex;
+    transition: color 0.3s;
+  }
+  .icon-btn:hover { color: var(--gold-bright); }
+  .icon-btn svg { width: 20px; height: 20px; stroke-width: 1.2; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 70% 40%, #2a1f15 0%, var(--bg) 60%);
+  }
+
+  .hero-image-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    filter: contrast(1.05) saturate(0.95);
+  }
+  .hero-image-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(14,12,10,0.5) 0%,
+      rgba(14,12,10,0.2) 40%,
+      rgba(14,12,10,0.85) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 1.5rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2.8rem, 11vw, 7.5rem);
+    line-height: 0.95;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1.2s 0.4s forwards;
+  }
+  .hero h1 em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-bright);
+  }
+
+  .hero p {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 34ch;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 2.2rem;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-101%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+  .btn:hover::before { transform: translateX(0); }
+  .btn:hover { color: var(--bg); }
+  .btn svg { width: 14px; height: 14px; transition: transform 0.4s; }
+  .btn:hover svg { transform: translateX(4px); }
+
+  .hero-btn {
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-meta {
+    position: absolute;
+    bottom: 2rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    z-index: 3;
+  }
+
+  section {
+    padding: 5rem 1.25rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .section-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.05;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+  }
+  .section-title em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold-bright);
+    font-weight: 300;
+  }
+  .section-sub {
+    font-family: var(--serif);
+    color: var(--ink-soft);
+    max-width: 50ch;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* COLLECTIONS */
+  .collections {
+    background: var(--bg-soft);
+    margin: 0;
+    max-width: none;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .collections-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 1.25rem;
+  }
+
+  .col-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .col-card {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--bg-warm);
+    transition: border-color 0.5s;
+  }
+  .col-card:hover { border-color: var(--line-strong); }
+
+  .col-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.85);
+  }
+  .col-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(1);
+  }
+
+  .col-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, transparent 30%, rgba(14,12,10,0.92) 100%);
+  }
+
+  .col-num {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .col-name {
+    font-family: var(--display);
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .col-desc {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  /* SIGNATURE PIECES */
+  .pieces { background: var(--bg); }
+
+  .pieces-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .piece { position: relative; }
+
+  .piece-image {
+    aspect-ratio: 4/5;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    position: relative;
+    background: var(--bg-warm);
+  }
+  .piece-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .piece:hover .piece-image img { transform: scale(1.05); }
+
+  .piece-num {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--ink);
+    background: rgba(14, 12, 10, 0.7);
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--line);
+    backdrop-filter: blur(4px);
+    z-index: 2;
+  }
+
+  .piece-name {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+  .piece-name em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold-bright);
+    font-weight: 300;
+  }
+  .piece-meta {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+  }
+  .piece-desc {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  /* EDITORIAL */
+  .editorial {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    padding: 6rem 1.25rem;
+    max-width: none;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .editorial::before, .editorial::after {
+    content: '◆';
+    position: absolute;
+    color: var(--gold);
+    font-size: 0.8rem;
+    opacity: 0.4;
+  }
+  .editorial::before { top: 2rem; left: 50%; transform: translateX(-50%); }
+  .editorial::after { bottom: 2rem; left: 50%; transform: translateX(-50%); }
+
+  .editorial-quote {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 5vw, 2.8rem);
+    line-height: 1.25;
+    max-width: 22ch;
+    margin: 0 auto 1.5rem;
+  }
+  .editorial-quote em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold-bright);
+    font-weight: 300;
+  }
+  .editorial-cite {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* HERITAGE */
+  .heritage {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .heritage-visual {
+    aspect-ratio: 3/4;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .heritage-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.05);
+  }
+  .heritage-visual::before {
+    content: 'Est. 1887';
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(14, 12, 10, 0.7);
+    padding: 0.5rem 0.8rem;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+  }
+
+  .heritage-text h2 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    line-height: 1.05;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  .heritage-text h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold-bright);
+    font-weight: 300;
+  }
+  .heritage-text p {
+    color: var(--ink-soft);
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .pillar-num {
+    font-family: var(--display);
+    font-size: 2.2rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .pillar-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* VALUES */
+  .values {
+    background: var(--bg-soft);
+    max-width: none;
+    padding: 4rem 1.25rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .values-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+  }
+  .value { text-align: center; }
+  .value-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 1rem;
+    color: var(--gold);
+  }
+  .value-title {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .value-desc {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* VISIT */
+  .visit {
+    text-align: center;
+    padding: 6rem 1.25rem;
+  }
+  .visit h2 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  .visit h2 em {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold-bright);
+    font-weight: 300;
+  }
+  .visit p {
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    max-width: 44ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  .visit-address {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold-bright);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #060504;
+    border-top: 1px solid var(--line);
+    padding: 4rem 1.25rem 2rem;
+    color: var(--ink-soft);
+  }
+  .footer-inner { max-width: 1400px; margin: 0 auto; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 1.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-brand { grid-column: span 2; }
+  .footer-brand .logo {
+    font-size: 1.6rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .footer-brand p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 40ch;
+    font-style: italic;
+  }
+  .footer-col h4 {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.7rem; }
+  .footer-col a, .footer-col span {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    display: block;
+  }
+  .footer-col a:hover { color: var(--gold-bright); }
+  .footer-col .city {
+    font-family: var(--display);
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .footer-col .addr {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* TABLET */
+  @media (min-width: 700px) {
+    .col-grid { grid-template-columns: repeat(3, 1fr); }
+    .pieces-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .values-grid { grid-template-columns: repeat(4, 1fr); }
+    .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    .footer-brand { grid-column: span 1; }
+  }
+
+  /* DESKTOP */
+  @media (min-width: 1024px) {
+    .nav { padding: 1.4rem 2rem; }
+    .nav-links { display: flex; }
+    .menu-toggle { display: none; }
+
+    section { padding: 7rem 2rem; }
+    .collections-inner { padding: 6rem 2rem; }
+    .values { padding: 5rem 2rem; }
+
+    .hero-content { padding: 6rem 2rem 8rem; }
+    .hero p { font-size: 1.2rem; }
+    .hero-image-wrap img { opacity: 0.45; }
+
+    .pieces-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+    .col-grid { gap: 1.5rem; }
+
+    .heritage { grid-template-columns: 1fr 1fr; gap: 5rem; }
+
+    .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; }
+
+    .editorial { padding: 9rem 2rem; }
+    .nav-cta { font-size: 0.65rem; padding: 0.7rem 1.2rem; }
+  }
+
+  @media (min-width: 1280px) {
+    .hero h1 { font-size: 8rem; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="announce">A Parisian House of Fine Jewellery &nbsp;◆&nbsp; Since MDCCCLXXXVII</div>
+
+<header>
+  <nav class="nav">
+    <button class="icon-btn menu-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="3" y1="8" x2="21" y2="8"/><line x1="3" y1="16" x2="21" y2="16"/></svg>
+    </button>
+
+    <a href="#" class="logo">Maison<span>◆</span>Lumière</a>
+
+    <ul class="nav-links">
+      <li><a href="#collections">Collections</a></li>
+      <li><a href="#pieces">Signature</a></li>
+      <li><a href="#heritage">Heritage</a></li>
+      <li><a href="#visit">Atelier</a></li>
+      <li><a href="#visit">Journal</a></li>
+    </ul>
+
+    <a href="#visit" class="nav-cta">Book a Viewing</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-image-wrap">
+    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1920&q=85" alt="Diamond detail" loading="eager">
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">◆ A Parisian Maison · MMXXVI</div>
+    <h1>Brilliance,<br><em>refined</em><br>by hand.</h1>
+    <p>Ethically sourced diamonds and rare gemstones, set by master artisans in our Parisian atelier. Each piece, a singular story — shown only to those who seek it.</p>
+    <a href="#collections" class="btn hero-btn">
+      Explore the Maison
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
+  <div class="hero-meta">
+    <span>N° 001 / IV</span>
+    <span>Scroll ↓</span>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="collections-inner">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">◆ The Collections</div>
+      <h2 class="section-title">Universes of <em>desire</em></h2>
+      <p class="section-sub">Six distinct expressions of the maison's craft — each devoted to a singular form of beauty, shown by appointment only.</p>
+    </div>
+
+    <div class="col-grid">
+
+      <div class="col-card reveal">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=85" alt="Diamond solitaire ring" loading="lazy">
+        <div class="col-overlay">
+          <div class="col-num">N° I</div>
+          <div class="col-name">Rings</div>
+          <div class="col-desc">Solitaires & engagement</div>
+        </div>
+      </div>
+
+      <div class="col-card reveal">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=85" alt="Diamond necklace" loading="lazy">
+        <div class="col-overlay">
+          <div class="col-num">N° II</div>
+          <div class="col-name">Necklaces</div>
+          <div class="col-desc">Pendants & rivières</div>
+        </div>
+      </div>
+
+      <div class="col-card reveal">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=85" alt="Diamond earrings" loading="lazy">
+        <div class="col-overlay">
+          <div class="col-num">N° III</div>
+          <div class="col-name">Earrings</div>
+          <div class="col-desc">Studs & chandeliers</div>
+        </div>
+      </div>
+
+      <div class="col-card reveal">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=85" alt="Diamond bracelet" loading="lazy">
+        <div class="col-overlay">
+          <div class="col-num">N° IV</div>
+          <div class="col-name">Bracelets</div>
+          <div class="col-desc">Tennis & rivière</div>
+        </div>
+      </div>
+
+      <div class="col-card reveal">
+        <img src="https://images.unsplash.com/photo-1518131672697-613becd4fab5?w=800&q=85" alt="Loose diamond" loading="lazy">
+        <div class="col-overlay">
+          <div class="col-num">N° V</div>
+          <div class="col-name">Loose Diamonds</div>
+          <div class="col-desc">GIA-certified stones</div>
+        </div>
+      </div>
+
+      <div class="col-card reveal">
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=800&q=85" alt="Coloured gemstones" loading="lazy">
+        <div class="col-overlay">
+          <div class="col-num">N° VI</div>
+          <div class="col-name">Coloured Gems</div>
+          <div class="col-desc">Emeralds, rubies & sapphires</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE PIECES -->
+<section class="pieces" id="pieces">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">◆ Signature Pieces</div>
+    <h2 class="section-title">The <em>archive</em></h2>
+    <p class="section-sub">A selection of the maison's most celebrated creations, each accompanied by full GIA certification and a place in our archives.</p>
+  </div>
+
+  <div class="pieces-grid">
+
+    <div class="piece reveal">
+      <div class="piece-image">
+        <span class="piece-num">N° MMXXVI · 001</span>
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=900&q=85" alt="Étoile solitaire ring" loading="lazy">
+      </div>
+      <div class="piece-name">Étoile <em>Solitaire</em></div>
+      <div class="piece-meta">1.8 ct · F colour · VVS1 · Platinum</div>
+      <div class="piece-desc">A brilliant-cut diamond set on a fluted platinum band, polished by hand over fourteen hours.</div>
+    </div>
+
+    <div class="piece reveal">
+      <div class="piece-image">
+        <span class="piece-num">N° MMXXVI · 002</span>
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=85" alt="Constellation pendant" loading="lazy">
+      </div>
+      <div class="piece-name">Pendentif <em>Constellation</em></div>
+      <div class="piece-meta">Three stones · D–E colour · 18k yellow gold</div>
+      <div class="piece-desc">Three pear-cut diamonds suspended in a graduated drop, drawn from the maison's 1923 archive.</div>
+    </div>
+
+    <div class="piece reveal">
+      <div class="piece-image">
+        <span class="piece-num">N° MMXXVI · 003</span>
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=85" alt="Cascade earrings" loading="lazy">
+      </div>
+      <div class="piece-name">Boucles <em>Cascade</em></div>
+      <div class="piece-meta">2.4 ct tw · G colour · VS2 · White gold</div>
+      <div class="piece-desc">Chandelier earrings of articulated white gold and 64 graduated brilliants — a study in movement.</div>
+    </div>
+
+    <div class="piece reveal">
+      <div class="piece-image">
+        <span class="piece-num">N° MMXXVI · 004</span>
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=85" alt="Rivière bracelet" loading="lazy">
+      </div>
+      <div class="piece-name">Bracelet <em>Rivière</em></div>
+      <div class="piece-meta">5.6 ct tw · E–F colour · 18k rose gold</div>
+      <div class="piece-desc">A flowing line of 38 round-brilliants in invisible settings — the maison's most enduring composition.</div>
+    </div>
+
+    <div class="piece reveal">
+      <div class="piece-image">
+        <span class="piece-num">N° MMXXVI · 005</span>
+        <img src="https://images.unsplash.com/photo-1518131672697-613becd4fab5?w=900&q=85" alt="Lumière diamond" loading="lazy">
+      </div>
+      <div class="piece-name">La <em>Lumière</em></div>
+      <div class="piece-meta">3.04 ct · D colour · IF clarity · Type IIa</div>
+      <div class="piece-desc">The house signature stone, named for our founder. A round-brilliant of exceptional clarity, presented loose.</div>
+    </div>
+
+    <div class="piece reveal">
+      <div class="piece-image">
+        <span class="piece-num">N° MMXXVI · 006</span>
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=85" alt="Hélène ring" loading="lazy">
+      </div>
+      <div class="piece-name">Bague <em>Hélène</em></div>
+      <div class="piece-meta">Centre 2.1 ct · Halo · Platinum</div>
+      <div class="piece-desc">A cushion-cut centre stone surrounded by a halo of pavé — quietly grand, named for the founder's daughter.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="editorial">
+  <div class="reveal">
+    <p class="editorial-quote">"A diamond is forever — <em>but a maison's craft</em> is timeless."</p>
+    <div class="editorial-cite">— Madame Hélène Lumière · Founder, 1887</div>
+  </div>
+</section>
+
+<!-- HERITAGE -->
+<section id="heritage">
+  <div class="heritage">
+    <div class="heritage-visual reveal">
+      <img src="https://images.unsplash.com/photo-1518131672697-613becd4fab5?w=900&q=85" alt="A brilliant-cut diamond from the archive">
+    </div>
+
+    <div class="heritage-text reveal">
+      <div class="section-eyebrow">◆ Our Story</div>
+      <h2>A century &<br>three generations of <em>savoir-faire</em></h2>
+      <p>From a single atelier on Rue de la Paix to the world's most discerning collectors, Maison Lumière has spent over 130 years pursuing one ideal: jewellery that transcends its time.</p>
+      <p>Every stone passes through twelve hands before it reaches the showroom. Every setting is the work of artisans whose apprenticeships are measured in decades, not months. We do not sell online — we receive, by appointment, those who wish to see.</p>
+
+      <div class="pillars">
+        <div>
+          <div class="pillar-num">137</div>
+          <div class="pillar-label">Years of Craft</div>
+        </div>
+        <div>
+          <div class="pillar-num">28</div>
+          <div class="pillar-label">Master Artisans</div>
+        </div>
+        <div>
+          <div class="pillar-num">100%</div>
+          <div class="pillar-label">GIA Certified</div>
+        </div>
+        <div>
+          <div class="pillar-num">∞</div>
+          <div class="pillar-label">Lifetime Care</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="values-grid">
+    <div class="value">
+      <svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+        <polygon points="16,4 6,12 10,28 22,28 26,12"/>
+        <line x1="6" y1="12" x2="26" y2="12"/>
+        <line x1="16" y1="4" x2="16" y2="28"/>
+      </svg>
+      <div class="value-title">Heritage Cuts</div>
+      <div class="value-desc">Traditions preserved since 1887</div>
+    </div>
+    <div class="value">
+      <svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M16 4 L26 8 V18 C26 23, 21 27, 16 28 C11 27, 6 23, 6 18 V8 Z"/>
+        <polyline points="12 16 15 19 21 13"/>
+      </svg>
+      <div class="value-title">Ethical Sourcing</div>
+      <div class="value-desc">Conflict-free, fully traceable</div>
+    </div>
+    <div class="value">
+      <svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+        <circle cx="16" cy="16" r="11"/>
+        <polygon points="16,9 12,14 13.5,17.5 18.5,17.5 20,14"/>
+      </svg>
+      <div class="value-title">Bespoke Atelier</div>
+      <div class="value-desc">Designed entirely by hand</div>
+    </div>
+    <div class="value">
+      <svg class="value-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="6" y="8" width="20" height="18" rx="1"/>
+        <line x1="6" y1="13" x2="26" y2="13"/>
+        <line x1="11" y1="4" x2="11" y2="10"/>
+        <line x1="21" y1="4" x2="21" y2="10"/>
+      </svg>
+      <div class="value-title">Private Viewings</div>
+      <div class="value-desc">By appointment, in Paris</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="reveal">
+    <div class="section-eyebrow">◆ Visit the Maison</div>
+    <h2>Discover the collection <em>in person</em></h2>
+    <p>Our atelier opens its doors by appointment only. Each viewing is private, unhurried, and accompanied by a member of the maison — there is no other way to truly see our work.</p>
+    <div class="visit-address">12 Rue de la Paix · 75002 Paris · France</div>
+    <a href="mailto:atelier@maisonlumiere.fr" class="btn">
+      Request an Appointment
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Maison<span>◆</span>Lumière</a>
+        <p>Fine diamonds and jewellery, ethically sourced and hand-crafted in our Paris atelier since 1887. Shown by appointment.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="#heritage">Our Heritage</a></li>
+          <li><a href="#">The Atelier</a></li>
+          <li><a href="#">Master Artisans</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Journal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Craft</h4>
+        <ul>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#pieces">Signature Pieces</a></li>
+          <li><a href="#">Bespoke Commissions</a></li>
+          <li><a href="#">Stone Sourcing</a></li>
+          <li><a href="#">Care & Restoration</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Salons</h4>
+        <ul>
+          <li>
+            <span class="city">Paris</span>
+            <span class="addr">Rue de la Paix</span>
+          </li>
+          <li>
+            <span class="city">London</span>
+            <span class="addr">Bond Street</span>
+          </li>
+          <li>
+            <span class="city">Geneva</span>
+            <span class="addr">Rue du Rhône</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:atelier@maisonlumiere.fr">atelier@maisonlumiere.fr</a></li>
+          <li><a href="tel:+33142861887">+33 1 42 86 18 87</a></li>
+          <li><a href="#visit">Book a Viewing</a></li>
+          <li><a href="#">Press Inquiries</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© MMXXVI · Maison Lumière</span>
+      <span>Privacy · Terms · Cookies</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
